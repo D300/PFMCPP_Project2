@@ -140,7 +140,7 @@ float calculateDifference(float x, float y)
 /*
  6)
  */
-void enyojSaturdayMorning(int drinkType, float drinkAmount)
+void enjoySaturdayMorning(int drinkType, float drinkAmount)
 {
     ignoreUnused(drinkType, drinkAmount);
 }
@@ -211,7 +211,7 @@ int main()
     /*
     6)
     */
-    enyojSaturdayMorning(2, 0.5);
+    enjoySaturdayMorning(2, 0.5);
     
     /*
     7)

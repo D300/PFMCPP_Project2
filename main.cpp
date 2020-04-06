@@ -1,4 +1,5 @@
 #include <iostream>
+#include <array>
 
 template<typename ...T>
 void ignoreUnused(T&&...) { }
@@ -17,15 +18,13 @@ video: Chapter 2 - Part 3
  1) Write down the names of all of the primitives available in C++ (excluding wchar_t)
  put them here: 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ integer
+ char
+ float
+ double
+
+ void
+
  
 2) for each primitive type, write out 3 variable declarations inside the variableDeclaration function.
     give each declaration an initial value
@@ -65,10 +64,23 @@ void variableDeclarations()
 {
     //example:
     int number = 2; //declaration of a primitive named 'number' with an initial value of '2'
+    int counter = 0;
+    int age = 18;
+    int max = 100;
+
+    char null = 0; // interpreted as ASCII
+    char space = 32;
+    char del = 127;
+
+    float automation = 0.f; // roughly 6 numbers
+    float sig = 0.f;
+    float opacity = 0.f;
+
+    double pseodoPi = 3.145678; // ca. 15 digits after 
+    double myAge = 28.456789456789456;
+    double myMumsAge = 56.123984761234;
     
-    
-    
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, counter, age, max, null, space, del, automation, sig, opacity, pseodoPi, myAge, myMumsAge); //passing each variable declared to the ignoreUnused() function
 }
 /*
  10 functions
@@ -84,69 +96,144 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
  1)
  */
 
+void buyBeer (int bottleAmount = 100, std::string brand = "theBestBeer" )
+{
+    ignoreUnused(bottleAmount, brand);
+}
+
 /*
  2)
  */
+void doStuff(int location = 1, bool actionType = true)
+{
+    ignoreUnused(location, actionType);
+}
+
 
 /*
  3)
  */
+void parseString(std::string myString, int parseStyle)
+{
+    ignoreUnused(myString, parseStyle);
+}
 
 /*
  4)
  */
 
+float getDepth(float volume, float width)
+{
+    ignoreUnused(volume, width);
+    return {};
+}
+
 /*
  5)
  */
+float calculateDifference(float x, float y)
+{
+    ignoreUnused(x, y);
+    return {};
+}
 
 /*
  6)
  */
+void enjoySaturdayMorning(int drinkType, float drinkAmount)
+{
+    ignoreUnused(drinkType, drinkAmount);
+}
 
 /*
  7)
  */
+void squeezeBanana(float pressure)
+{
+    ignoreUnused(pressure);
+}
 
 /*
  8)
  */
+bool getFlagToSample(float refValue)
+{
+    ignoreUnused(refValue);
+    return{};
+}
+
 
 /*
  9)
  */
+void throwNet(float netWidth, float netHight, float netThickness)
+{
+    ignoreUnused(netWidth, netHight, netThickness);
+}
 
 /*
  10)
  */
+void rentALaptop(int rentalDurationInMonth, int laptopType)
+{
+    ignoreUnused(rentalDurationInMonth, laptopType);
+}
+
+//===========================================================================================
+//===========================================================================================
 
 int main()
 {
     //example of calling that function, storing the value, and passing it to ignoreUnused at the end of main()
     auto carRented = rentACar(6, 2); 
     
-    //1)
+    /*
+    2)
+    */
+    doStuff(2, true);
+
+
+    /*
+    3)
+    */
+    parseString("yooo", 3);
+
+    /*
+    4)
+    */
+    auto depth = getDepth(0.4f, 0.3f);
+
+    /*
+    5)
+    */
+    float diff = calculateDifference(5, 3);
+
+    /*
+    6)
+    */
+    enjoySaturdayMorning(2, 0.5);
     
-    //2)
+    /*
+    7)
+    */
+    squeezeBanana(0.9f);
     
-    //3)
+    /*
+    8)
+    */
+    auto flag = getFlagToSample(0.2f);
+
+    /*
+    9)
+    */
+    throwNet(0.3f, 0.4f, 0.5f);
+
+    /*
+    10)
+    */
+    rentALaptop(2, 3);
     
-    //4)
-    
-    //5)
-    
-    //6)
-    
-    //7)
-    
-    //8)
-    
-    //9)
-    
-    //10)
-    
-    
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, depth, diff, flag);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
